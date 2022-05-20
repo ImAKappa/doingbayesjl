@@ -1,0 +1,58 @@
+---
+title: Chapter 6 - Inferring a Binomial Probability via Exact Mathematical Analysis
+date: 2022-05-19
+author: ImAKappa
+---
+
+## 6.1 The Likelihood Function: Bernoulli Distribution
+
+$p(\gamma | \theta) = \theta^{\gamma} (1 - \theta)^{1 - \gamma}$
+
+```julia
+"""
+Compute Bernoulli Likelihood of single flip
+    `y`: outcome of flip; 0=tails, 1=heads
+    `θ`: probability of heads
+"""
+function bernoulli_likelihood(γ; θ)
+    return θ^γ * (1 - θ)^(1 - z)
+end
+```
+
+$p(\{ y_i \} | \theta) = \theta^{z} (1 - \theta)^{N - z}$
+
+```julia
+"""
+Compute Bernoulli Likelihood of `z` heads out of `N` flips
+
+    `z`: number of head flips
+    `N`: total flips
+    `N - z`: number of tails
+"""
+function bernoulli_likelihood(z, N; θ)
+    return θ^z * (1 - θ)^(N - z)
+end
+```
+
+```julia
+using Distributions
+Bernoulli()
+```
+
+## 6.2 A Description Credibilities: The Beta Distribution
+
+Figure 6.1 Example Beta Distribution
+
+Figure 6.2 Beta Distributions with Means
+
+## 6.3 The Posterior Beta
+
+Figure 6.3 Posterior Beta
+
+## 6.4 Examples
+
+Figure 6.4 Example Beta Distribution Priors
+
+Figure 6.5 Prior Distributions That Cannot Be Beta Distributed
+
+## 6.5 Summary
